@@ -1,6 +1,6 @@
 # Create A Fog Shader
 
-![UE_Fog](assets/ExponHeightFog.jpg)
+![UE_Fog](https://raw.githubusercontent.com/Ubpa/ImgBed/master/Note/CG/blogs/Fog/ExponHeightFog.jpg)
 
 ## 笔记
 
