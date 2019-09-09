@@ -360,6 +360,8 @@ $$
 
 ...
 
+![1567648237099](assets/1567648237099.png)
+
 ## 4.4 Punctual lights
 
 Frostbite 只支持 point 和 spot 这两种 punctual light。为了物理正确，他们应遵循“平方反比定律”。
@@ -550,7 +552,7 @@ $$
 L_\text{out}=\int_{\Omega^{+}} f(\mathbf{v}, \mathbf{l}) V(\mathbf{l}) L_\text{in}\langle\mathbf{n} \cdot \mathbf{l}\rangle \mathrm{d} \mathbf{l}=\int_{\Omega_{\mathrm{light}}} f(\mathbf{v}, \mathbf{l})  L_\text{in}\langle\mathbf{n} \cdot \mathbf{l}\rangle
 $$
 
-如果面光源可以从阴影点到达，则函数 V 是 1，否则为 0。函数 V 使得我们可以同时考虑面光源的形状和阴影。本节中我们不考虑引用（在[第 4.10.4 节](#4.10.4)考虑）。$\Omega_\text{light}$ 是面光源所占的立体角。
+如果面光源可以从着色点到达，则函数 V 是 1，否则为 0。函数 V 使得我们可以同时考虑面光源的形状和阴影。本节中我们不考虑阴影（在[第 4.10.4 节](#4.10.4)考虑）。$\Omega_\text{light}$ 是面光源所占的立体角。
 
 积分可按面积积分
 
@@ -601,6 +603,15 @@ L=\frac{\phi}{A \int_{\Omega^{+}}\langle \mathbf{l} \cdot \mathbf{n}\rangle \mat
 $$
 对于四种面光源，具体的转换关系如下
 
+| 光源   | 转换关系                                        |
+| ------ | ----------------------------------------------- |
+| Sphere | $$\frac{\phi}{4 \text { radius }^{2} \pi^{2}}$$ |
+|        |                                                 |
+|        |                                                 |
+|        |                                                 |
+
+
+
 - Sphere
   $$
   \frac{\phi}{4 \text { radius }^{2} \pi^{2}}
@@ -629,7 +640,7 @@ punctual light 没有面积，因此只能使用 luminous intensity 作为单位
 
 首先我们用 Lambertian diffuse BRDF $\frac{\rho}{\pi}$ 来解光照积分，先不用 Disney diffuse BRDF。假设面光源有恒定的 $L_\text{in}$。因此 diffuse 光照积分为
 $$
-L_\text{o u t}=\frac{\rho}{\pi} \int_{\Omega_{\text {light}}} L_\text{in}\langle\mathbf{n} \cdot \mathbf{l}\rangle=\frac{\rho}{\pi} E(n)
+L_\text{out}=\frac{\rho}{\pi} \int_{\Omega_{\text {light}}} L_\text{in}\langle\mathbf{n} \cdot \mathbf{l}\rangle=\frac{\rho}{\pi} E(n)
 $$
 其中 illuminance E 为
 $$
@@ -955,7 +966,7 @@ form factor 和 solid angle 都难以计算，难以实时计算。
 
 我们将 capsule 分割为 1 个圆柱和 2 个半球，并利用之前的结果
 
-- 圆柱体视为一个正对的等大 rectangular lihgt
+- 圆柱体视为一个正对的等大 rectangular light
 - 两个半球视为一个位于圆柱轴上离着色点最近的位置的球
 - 两者叠加
 
@@ -985,7 +996,7 @@ float3 closestPointOnSegment ( float3 a, float3 b, float3 c)
 // The sphere is placed at the nearest point on the segment .
 // The rectangular plane is define by the following orthonormal frame :
 float3 forward = normalize ( closestPointOnLine (P0 , P1 , worldPos ) - worldPos );
-float3 left = lightLeft ;
+float3 left = lightLeft;
 float3 up = cross ( lightLeft , forward );
 
 float3 p0 = lightPos - left * (0.5 * lightWidth ) + lightRadius * up;
@@ -1013,6 +1024,10 @@ float illuminanceSphere = FB_PI * saturate ( dot ( sphereL , data . worldNormal 
 
 illuminance += illuminanceSphere ;
 ```
+
+> 只需要 $P_0$ 、$P_1$ 和 radius 就可以确定胶囊体
+>
+> height、forward、left、up 可以从中推出
 
 ### 4.7.3 Five times rule
 
