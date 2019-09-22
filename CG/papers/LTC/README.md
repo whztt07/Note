@@ -1,25 +1,33 @@
-# Real-Time Polygonal-Light Shading with Linearly Transformed Cosines
+# LTC
+
+## Real-Time Polygonal-Light Shading with Linearly Transformed Cosines
 
 > Eric Heitz, Jonathan Dupuy, Stephen Hill and David Neubelt
 
 [Real-Time Polygonal-Light Shading with Linearly Transformed Cosines](https://eheitzresearch.wordpress.com/415-2/) 
 
-## 示例
+> 不是最新的，看 github
 
-### vedio
+### 示例
+
+#### vedio
 
 <video id="video" controls="" preload="none">
     <source id="mp4" src="/resources/LTC.mp4" type="video/mp4">
 </video>
-### demo shader
+#### demo shader
 
 https://blog.selfshadow.com/sandbox/ltc.html
 
-### exe
+https://blog.selfshadow.com/ltc/webgl/ltc_line.html
+
+https://blog.selfshadow.com/ltc/webgl/ltc_disk.html
+
+#### exe
 
 [ltc_demo.exe](./resources/ltc_demo/bgfx/examples/runtime/ltc_demo.exe)
 
-## 复现
+### 复现
 
 - [ ] 总结论文
 - [ ] 拟合（有源码）
