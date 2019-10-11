@@ -248,6 +248,14 @@ $$
 
 ![1569146439936](assets/1569146439936.jpg)
 
+> sphere approximation 看上去好像很美好，其实问题还是有的
+>
+> 如下
+>
+> ![img](assets/X`DM8P6MOSK]@JIUJL0DJ]L.png)
+>
+> 在球的背面出现了高光，这是有问题的，果然最终还是得靠裁剪
+
 ## 参考
 
 [^rnd]: Stephen Hill, Eric Heitz. [**Real-Time Area Lighting:  a Journey From Research to Production**](https://blog.selfshadow.com/publications/s2016-advances/), 2016.

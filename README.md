@@ -17,6 +17,7 @@
   - [SignalSystem](Math/SignalSystem) 
 - [Other](Other) 
   - [LatexIntro](Other/LatexIntro) 
+  - [人类改造计划](Other/RHP) 
 
 ## 额外资源
 
